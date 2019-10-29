@@ -26,7 +26,10 @@ def success():
     qry = db_session.query(Items)
     results = qry.all()
 
-    return str(results)
+    list = []
+    for row in results:
+        list.append(row.name + " " + str(row.quantity) + " " + row.description + " " + str(row.date_added))
+    return str(list)
   
 
 if __name__ == '__main__':
